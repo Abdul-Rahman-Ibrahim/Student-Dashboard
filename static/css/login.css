@@ -1,13 +1,9 @@
-/* Custom CSS for Login Page - Inline for convenience, but consider a separate file for larger projects */
+/* Custom CSS for Login Page */
 
 body {
-    /*
-    The background gradient needs to be applied here directly if base.html has its own body background,
-    or ensure base.html's body background is removed/overridden.
-    For this setup, the body background of the login page will take precedence
-    due to the specific positioning (d-flex, etc.).
-    */
-    background: linear-gradient(to right, #e2daea 0%, #2575fc 100%);
+    font-family: 'Poppins', sans-serif;
+    /* Applied if linked in HTML */
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
     /* Vibrant gradient background */
     display: flex;
     /* Centers content vertically and horizontally */
@@ -42,14 +38,12 @@ main {
     /* Remove any margins from main */
 }
 
-/* Login Card Styling */
-.login-card {
-    max-width: 500px;
-    /* Limit card width for better readability */
+/* Login Card Container - encompasses both image and form */
+.login-card-container {
     background-color: #ffffff;
-    /* White card background */
+    /* White background for the entire card */
     border-radius: 1rem;
-    /* More rounded corners */
+    /* Rounded corners for the whole container */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     /* Stronger, more appealing shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -57,15 +51,44 @@ main {
     /* Ensure card takes full width up to max-width */
 }
 
-.login-card:hover {
+.login-card-container:hover {
     transform: translateY(-5px);
     /* Subtle lift effect on hover */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.login-card .card-body {
+/* Specific styling for the image column */
+.login-image-col {
+    /* Set a fixed height if your image isn't tall enough to fill the space
+       or if you want to control its aspect ratio.
+       Otherwise, 'height: auto;' lets it adjust with content.
+    */
+    height: auto;
+    /* Let content define height, or specify a min-height */
+}
+
+.login-image-col img {
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
+    border-radius: 1rem 0 0 1rem;
+    /* Only top-left and bottom-left rounded corners for image */
+}
+
+/* Login Form Styling (inside the card-body) */
+.card-body {
     padding: 2.5rem;
     /* Increased internal padding */
+}
+
+/* Logo styling */
+.login-logo {
+    max-width: 120px;
+    /* Adjust size as needed */
+    height: auto;
+    display: block;
+    /* Ensures it takes up its own line for margin auto */
+    margin: 0 auto 1.5rem auto;
+    /* Center the logo and add bottom margin */
 }
 
 .input-group-text {
@@ -120,28 +143,30 @@ main {
     /* Ensure primary color is applied */
 }
 
-.bi-person-circle {
-    font-size: 4rem !important;
-    /* Adjust size of the user icon */
-    margin-bottom: 1rem;
-}
 
 /* Responsive adjustments */
 @media (max-width: 767.98px) {
-    .login-card {
+    .login-card-container {
         margin: 1.5rem;
         /* Add some margin on smaller screens */
     }
 
-    .login-card .card-body {
+    .card-body {
         padding: 2rem;
     }
 
-    .bi-person-circle {
-        font-size: 3rem !important;
+    /* Hide the image column on small screens */
+    .login-image-col {
+        display: none;
     }
 
-    .h3 {
-        font-size: 1.5rem;
+    /* Ensure rounded corners apply correctly when image is hidden */
+    .login-card-container {
+        border-radius: 1rem;
+    }
+
+    .login-logo {
+        max-width: 100px;
+        /* Adjust logo size for smaller screens */
     }
 }
