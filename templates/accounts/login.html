@@ -29,6 +29,7 @@
                         </div>
 
                         <form method="post">
+                            {% include '_components/messages.html' %}
                             {% csrf_token %}
                             <div class="mb-3">
                                 <label for="emailInput" class="form-label visually-hidden">Email address</label>

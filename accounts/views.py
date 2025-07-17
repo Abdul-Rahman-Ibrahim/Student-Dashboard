@@ -18,7 +18,7 @@ class LoginView(View):
 
         user = auth.authenticate(email=email, password=password)
         if not user:
-            messages.error('Error', 'Wrong password or Email!')
+            messages.error(request, 'Wrong password or Email!')
             return render(request, 'accounts/login.html', context=context)
         auth.login(request, user)
         return render(request, 'home/index.html')
