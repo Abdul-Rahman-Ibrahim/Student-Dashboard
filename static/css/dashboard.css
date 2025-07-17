@@ -1,0 +1,181 @@
+/* Custom CSS for Dashboard Modernization */
+
+/* Optional: Custom Fonts */
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Applied if linked in HTML */
+    background-color: #f8f9fa;
+    /* Light grey background */
+}
+
+/* Sidebar Customizations */
+.sidebar {
+    background-color: #f0f2f5;
+    /* Light grey for sidebar background */
+    min-height: 100vh;
+    /* Ensure sidebar extends full height */
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    /* Behind the navbar */
+    padding-top: 48px;
+    /* Offset to clear the fixed header */
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 250px;
+        /* Adjust sidebar width for mobile offcanvas */
+        transform: translateX(-100%);
+        transition: transform .3s ease-in-out;
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+    /* Darker text for links */
+    padding: 0.75rem 1.5rem;
+    border-left: 4px solid transparent;
+    /* For active indicator */
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar .nav-link.active {
+    color: #007bff;
+    /* Bootstrap primary blue */
+    background-color: #e9ecef;
+    /* Light background for active state */
+    border-left-color: #007bff;
+    /* Primary color indicator */
+    font-weight: 600;
+}
+
+.sidebar .nav-link:hover {
+    color: #0056b3;
+    /* Darker blue on hover */
+    background-color: #e2e6ea;
+}
+
+/* Main Content Area */
+main {
+    background-color: #ffffff;
+    /* White background for main content */
+    border-radius: 8px;
+    /* Slightly rounded corners */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    /* Subtle shadow */
+}
+
+.h2 {
+    color: #34495e;
+    /* Darker, more professional heading color */
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 12px;
+    /* More rounded cards */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    /* More pronounced shadow */
+}
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Badges */
+.badge {
+    padding: 0.5em 0.8em;
+    border-radius: 1rem;
+    /* Pill-shaped badges */
+    font-weight: 500;
+}
+
+/* Progress Bars */
+.progress {
+    height: 8px;
+    /* Thinner progress bars */
+    border-radius: 5px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    border-radius: 5px;
+}
+
+/* Buttons */
+.btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Specific button for "Add New" with icon */
+.btn.d-flex.align-items-center.gap-1 i {
+    font-size: 1.1em;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 767.98px) {
+    .navbar-brand {
+        margin-left: 0.5rem;
+    }
+
+    .main {
+        padding: 1rem !important;
+    }
+
+    .offcanvas-md {
+        transform: translateX(-100%);
+    }
+
+    .offcanvas-md.show {
+        transform: translateX(0);
+    }
+}
+
+/* General Link Styling */
+a.card-link {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a.card-link:hover {
+    text-decoration: underline;
+}

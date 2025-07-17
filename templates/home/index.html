@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
+        <h1 class="h2 fw-bold text-primary">Dashboard Overview</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-outline-primary rounded-pill">Share Report</button>
+                <button type="button" class="btn btn-outline-primary rounded-pill">Download Data</button>
+            </div>
+    
+        </div>
+    </div>
+    
+    
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-success"><i class="bi bi-journal-check me-2"></i> Upcoming
+                        Assignments</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Math Homework 3
+                            <span class="badge bg-warning text-dark">Due Tomorrow</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            History Essay
+                            <span class="badge bg-info text-dark">Due Friday</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Science Lab Report
+                            <span class="badge bg-secondary">Due Next Week</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="card-link mt-3 d-block text-end">View All Assignments <i
+                            class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-danger"><i class="bi bi-star-fill me-2"></i> Recent Grades
+                    </h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Algebra Quiz 1
+                            <span class="badge bg-success">A-</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            English Midterm
+                            <span class="badge bg-info text-dark">B+</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Chemistry Project
+                            <span class="badge bg-warning text-dark">C</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="card-link mt-3 d-block text-end">View Full Gradebook <i
+                            class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-primary"><i class="bi bi-graph-up me-2"></i> Course Progress
+                    </h5>
+                    <div class="mb-3">
+                        <p class="mb-1">Mathematics <span class="float-end">75%</span></p>
+                        <div class="progress" role="progressbar" aria-label="Math Progress" aria-valuenow="75"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-primary" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-1">Literature <span class="float-end">50%</span></p>
+                        <div class="progress" role="progressbar" aria-label="Literature Progress" aria-valuenow="50"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-success" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mb-1">Physics <span class="float-end">30%</span></p>
+                        <div class="progress" role="progressbar" aria-label="Physics Progress" aria-valuenow="30"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-warning" style="width: 30%"></div>
+                        </div>
+                    </div>
+                    <a href="#" class="card-link mt-3 d-block text-end">View All Courses <i
+                            class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-info text-white fw-bold">
+            <i class="bi bi-megaphone-fill me-2"></i> Latest Announcements
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <small class="text-muted float-end">July 15, 2025</small>
+                    <p class="fw-bold mb-1">Campus Closure Due to Weather</p>
+                    <p class="mb-0">All classes canceled for tomorrow, July 18th. Please check email for
+                        updates.</p>
+                </li>
+                <li class="list-group-item">
+                    <small class="text-muted float-end">July 10, 2025</small>
+                    <p class="fw-bold mb-1">New Library Hours</p>
+                    <p class="mb-0">The library will now be open until 10 PM on weekdays.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock content %}
