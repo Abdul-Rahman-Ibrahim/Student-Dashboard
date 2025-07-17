@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
 
 from django.contrib import auth
@@ -22,4 +22,10 @@ class LoginView(View):
             return render(request, 'accounts/login.html', context=context)
         auth.login(request, user)
         return render(request, 'home/index.html')
+    
 
+class LogoutView(View):
+    def post(self, request):
+        auth.logout(request)
+        messages.success(request, 'You are now logged out')
+        return redirect('login')
