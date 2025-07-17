@@ -1,0 +1,130 @@
+<style>
+    /* Add these new styles to your existing static/css/base.css file */
+
+/* --- Django Messages Styling --- */
+
+.messages-container {
+    /* Styles for the overall container of all messages */
+    margin: 20px auto;
+    /* Center the messages */
+    max-width: 700px;
+    /* Limit width to prevent stretching too wide */
+    padding: 0 15px;
+    /* Add some horizontal padding */
+    box-sizing: border-box;
+    /* Include padding in element's total width and height */
+}
+
+.alert-message {
+    /* Base styles for all message types */
+    padding: 12px 20px;
+    /* Standard padding */
+    margin-bottom: 15px;
+    /* Space between multiple messages */
+    border-radius: var(--border-radius-sm);
+    /* Use your small border radius */
+    font-size: 0.95em;
+    /* Slightly smaller font size */
+    font-weight: 500;
+    /* Medium font weight */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Space between icon and text */
+    word-break: break-word;
+    /* Ensure long messages wrap */
+}
+
+/* Specific styles for message tags */
+
+.alert-info {
+    background-color: #e0f2fe;
+    /* Light blue */
+    color: #0284c7;
+    /* Darker blue text */
+    border: 1px solid #7dd3fc;
+    /* Blue border */
+}
+
+/* Optional: Add an icon for info messages */
+.alert-info::before {
+    content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="%230284c7" class="w-5 h-5"%3E%3Cpath stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /%3E%3C/svg%3E');
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    /* Prevent icon from shrinking */
+}
+
+
+.alert-success {
+    background-color: #d1fae5;
+    /* Light green */
+    color: #059669;
+    /* Darker green text */
+    border: 1px solid #34d399;
+    /* Green border */
+}
+
+/* Optional: Add an icon for success messages */
+.alert-success::before {
+    content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="%23059669" class="w-5 h-5"%3E%3Cpath stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /%3E%3C/svg%3E');
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* This is for messages.ERROR: 'danger' */
+.alert-danger {
+    background-color: #fee2e2;
+    /* Light red */
+    color: #dc2626;
+    /* Darker red text */
+    border: 1px solid #ef4444;
+    /* Red border */
+}
+
+/* Optional: Add an icon for danger messages */
+.alert-danger::before {
+    content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="%23dc2626" class="w-5 h-5"%3E%3Cpath stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.26-3.805-1.92-2.122-3.69l9.303-14.004c1.15-1.74 3.99-1.74 5.14 0l9.303 14.004c1.683 1.77-1.373 4.95-2.122 3.69L12 9z" /%3E%3C/svg%3E');
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+
+.alert-warning {
+    background-color: #fef9c3;
+    /* Light yellow */
+    color: #d97706;
+    /* Darker yellow text */
+    border: 1px solid #fcd34d;
+    /* Yellow border */
+}
+
+/* Optional: Add an icon for warning messages */
+.alert-warning::before {
+    content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="%23d97706" class="w-5 h-5"%3E%3Cpath stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.26-3.805-1.92-2.122-3.69L12 9z" /%3E%3C/svg%3E');
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+
+/* General small border radius variable, if not already present */
+:root {
+    /* ... existing variables ... */
+    --border-radius-sm: 0.375rem;
+    /* 6px */
+}
+</style>
+
+{% if messages %}
+<div class="messages-container">
+    {% for message in messages %}
+    {# Dynamically apply alert-message and specific alert-{{ tag }} class #}
+    <div class="alert-message alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
