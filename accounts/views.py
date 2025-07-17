@@ -4,6 +4,7 @@ from django.views.generic import View
 from django.contrib import auth
 from django.contrib import messages
 
+
 class LoginView(View):
     def get(self, request):
         return render(request, 'accounts/login.html')
@@ -13,7 +14,7 @@ class LoginView(View):
         password = request.POST.get('password')
 
         context = {
-            'form_values': request.POST,
+            'email': email,
         }
 
         user = auth.authenticate(email=email, password=password)
@@ -21,11 +22,10 @@ class LoginView(View):
             messages.error(request, 'Wrong password or Email!')
             return render(request, 'accounts/login.html', context=context)
         auth.login(request, user)
-        return render(request, 'home/index.html')
+        return redirect('home')
     
-
 class LogoutView(View):
-    def post(self, request):
+    def get(self, request):
         auth.logout(request)
-        messages.success(request, 'You are now logged out')
+        messages.success(request, 'You are now logged out!')
         return redirect('login')
