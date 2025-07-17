@@ -18,7 +18,9 @@
 
 <body>
 
-    {% include '_components/header.html' %}
+    {% block header %}
+        {% include '_components/header.html' %}
+    {% endblock header %}
 
     <div class="container-fluid">
         <div class="row">
@@ -26,7 +28,7 @@
             {% block sidebar %}
 
                 {% include '_components/sidebar.html' %}
-                
+
             {% endblock sidebar %}
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">

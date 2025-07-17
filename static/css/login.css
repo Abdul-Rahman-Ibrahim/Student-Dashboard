@@ -1,0 +1,147 @@
+/* Custom CSS for Login Page - Inline for convenience, but consider a separate file for larger projects */
+
+body {
+    /*
+    The background gradient needs to be applied here directly if base.html has its own body background,
+    or ensure base.html's body background is removed/overridden.
+    For this setup, the body background of the login page will take precedence
+    due to the specific positioning (d-flex, etc.).
+    */
+    background: linear-gradient(to right, #e2daea 0%, #2575fc 100%);
+    /* Vibrant gradient background */
+    display: flex;
+    /* Centers content vertically and horizontally */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* Ensures it takes full viewport height */
+    margin: 0;
+    padding-top: 0 !important;
+    /* Remove any top padding from base if it affects centering */
+}
+
+/* Adjust main content area to allow centering */
+main {
+    flex-grow: 1;
+    /* Allow main to grow and take available space */
+    display: flex;
+    /* Make main a flex container */
+    align-items: center;
+    /* Center vertically within main */
+    justify-content: center;
+    /* Center horizontally within main */
+    padding: 0 !important;
+    /* Remove default padding from main in base.html */
+    background-color: transparent !important;
+    /* Make main background transparent if needed */
+    box-shadow: none !important;
+    /* Remove any shadows from main if they exist in base.html */
+    border-radius: 0 !important;
+    /* Remove any border-radius from main */
+    margin: 0 !important;
+    /* Remove any margins from main */
+}
+
+/* Login Card Styling */
+.login-card {
+    max-width: 500px;
+    /* Limit card width for better readability */
+    background-color: #ffffff;
+    /* White card background */
+    border-radius: 1rem;
+    /* More rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* Stronger, more appealing shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    /* Ensure card takes full width up to max-width */
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+    /* Subtle lift effect on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.login-card .card-body {
+    padding: 2.5rem;
+    /* Increased internal padding */
+}
+
+.input-group-text {
+    background-color: #e9ecef;
+    /* Light background for icon */
+    border: 1px solid #ced4da;
+    border-right: none;
+    /* Blend with input field */
+    color: #495057;
+    font-size: 1.25rem;
+    /* Larger icon size */
+    padding: 0.75rem 1rem;
+    /* Adjust padding for icon */
+}
+
+.form-control-lg {
+    height: calc(2.5rem + 2px);
+    /* Standard large input height */
+    border-left: none;
+    /* Blend with icon */
+    padding: 0.75rem 1.25rem;
+    /* Match input padding */
+    border-radius: 0.5rem;
+    /* Slightly rounded input corners */
+}
+
+.form-control-lg:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    /* Bootstrap's primary blue focus shadow */
+    border-color: #80bdff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    /* Bootstrap primary blue */
+    border-color: #007bff;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    /* Larger button padding */
+    border-radius: 50rem !important;
+    /* Extremely rounded for pill shape */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.text-primary {
+    color: #007bff !important;
+    /* Ensure primary color is applied */
+}
+
+.bi-person-circle {
+    font-size: 4rem !important;
+    /* Adjust size of the user icon */
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .login-card {
+        margin: 1.5rem;
+        /* Add some margin on smaller screens */
+    }
+
+    .login-card .card-body {
+        padding: 2rem;
+    }
+
+    .bi-person-circle {
+        font-size: 3rem !important;
+    }
+
+    .h3 {
+        font-size: 1.5rem;
+    }
+}
