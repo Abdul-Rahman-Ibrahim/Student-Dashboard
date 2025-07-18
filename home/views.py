@@ -50,37 +50,60 @@ class SettingsView(View):
     def get(self, request):
         context = get_profile(request)
         return render(request, 'home/settings.html', context=context)
-    
 
-class ProfileSettings(View):
     def post(self, request):
-        pfp = request.FILES.get('pfp')  # ✅ Handle uploaded image
-        phone_number = request.POST.get('phone_number')
+        form_type = request.POST.get("form_type")
+        user = request.user
+        student = Students.objects.get(user=user)
 
-        context = get_profile(request)
-        items_updated = []
+        if form_type == "profile_form":
+            pfp = request.FILES.get("pfp")
+            phone = request.POST.get("phone_number")
 
-        if not pfp and not phone_number:
-            messages.info(request, 'No changes made.')
-            return render(request, 'home/settings.html', context)
-
-        student = Students.objects.get(user=request.user)
-
-        if pfp:
-            student.profile_picture = pfp
+            if pfp:
+                student.profile_picture = pfp
+            if phone:
+                student.phone_number = phone
             student.save()
-            items_updated.append('Profile picture')
-            context['pfp'] = student.profile_picture
+            messages.success(request, "Profile updated successfully.")
 
-        if phone_number and phone_number != student.phone_number:
-            student.phone_number = phone_number
-            student.save()
-            items_updated.append('Phone number')
-            context['phone_number'] = phone_number
+        elif form_type == "password_form":
+            pass
+            # # Handle password change
+            # current_password = request.POST.get("current_password")
+            # new_password = request.POST.get("new_password")
+            # confirm_password = request.POST.get("confirm_new_password")
 
-        msg = ', '.join(items_updated) + ' updated.'
-        messages.success(request, msg)
-        return redirect('settings')
+            # if new_password == confirm_password and user.check_password(current_password):
+            #     user.set_password(new_password)
+            #     user.save()
+            #     update_session_auth_hash(request, user)  # Prevent logout
+            #     messages.success(request, "Password changed successfully.")
+            # else:
+            #     messages.error(request, "Password update failed. Check your entries.")
+
+        elif form_type == "notification_form":
+            pass
+            # # Handle notification preferences
+            # student.email_grades = 'email_grades' in request.POST
+            # student.email_announcements = 'email_announcements' in request.POST
+            # student.email_deadlines = 'email_deadlines' in request.POST
+            # student.email_promotions = 'email_promotions' in request.POST
+            # student.save()
+            # messages.success(request, "Notification preferences updated.")
+
+        elif form_type == "display_form":
+            pass
+            # # Handle language and theme
+            # lang = request.POST.get("preferred_language")
+            # theme = request.POST.get("themeRadio")
+            # # Example: Save to user profile or session
+            # request.session['lang'] = lang
+            # request.session['theme'] = theme
+            # messages.success(request, "Display settings updated.")
+
+        return redirect('settings')  # Redirect back to same page after any form is submitted
+    
         
         
         

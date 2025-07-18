@@ -12,6 +12,8 @@
     </div>
 </div>
 
+{% include '_components/messages.html' %}
+
 <div class="row justify-content-center">
     <div class="col-9 col-md-10 col-lg-8">
         <div class="settings-content-panel p-3 rounded-3 shadow-sm">
@@ -20,8 +22,9 @@
                 <h3 class="mb-4 text-secondary">Profile Settings</h3>
                 <div class="card mb-4 border-0 shadow-sm">
                     <div class="card-body">
-                        <form method="POST" action="{% url 'profile-settings' %}" enctype="multipart/form-data">
+                        <form method="POST" action="{% url 'settings' %}" enctype="multipart/form-data">
                             {% csrf_token %}
+                            <input type="hidden" name="form_type" value="profile_form">
                             <div class="d-flex align-items-center mb-4">
                                 <img src="{{ pfp.url }}"
                                     class="rounded-circle me-4 profile-pic-lg border border-primary"
