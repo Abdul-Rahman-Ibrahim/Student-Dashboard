@@ -1,0 +1,197 @@
+/* Custom CSS for Settings Page */
+
+/* Base overrides for main content area to ensure scrollability */
+main {
+    background-color: #f8f9fa;
+    /* Light grey background for main content */
+    border-radius: 8px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 2rem !important;
+    /* Ensure enough padding at bottom for scrollspy */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Settings Navigation (Left List Group) */
+.list-group-flush {
+    border-radius: .75rem;
+    /* Slightly more rounded corners for the list group */
+}
+
+.list-group-item {
+    font-weight: 500;
+    color: #495057;
+    padding: 1rem 1.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.list-group-item.active {
+    background-color: #007bff;
+    /* Bootstrap primary blue */
+    color: #fff;
+    border-color: #007bff;
+}
+
+.list-group-item.active i {
+    color: #fff;
+    /* Ensure icon is white in active state */
+}
+
+.list-group-item:hover:not(.active) {
+    background-color: #e9ecef;
+    /* Light grey on hover */
+    color: #007bff;
+    /* Primary color text on hover */
+}
+
+.list-group-item i {
+    font-size: 1.1em;
+    color: #6c757d;
+    /* Muted icon color */
+    transition: color 0.2s ease;
+}
+
+/* Settings Content Panel (Right Side) */
+.scrollspy-example {
+    position: relative;
+    height: calc(100vh - 180px);
+    /* Adjust height to fill viewport, considering header/footer */
+    overflow-y: auto;
+    /* Enable scrolling for content */
+    border-radius: .75rem;
+    /* Rounded corners for the scrollable content area */
+    background-color: #ffffff;
+    /* White background */
+    padding: 2rem !important;
+    /* Ensure content has internal padding */
+}
+
+/* Section Headings */
+h3 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #34495e;
+    /* Darker secondary color */
+}
+
+/* Card Styling for Sub-sections */
+.card {
+    border: none;
+    border-radius: .75rem;
+    /* Rounded corners for inner cards */
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.05);
+    /* Lighter shadow for inner cards */
+}
+
+.card-body {
+    padding: 1.75rem;
+}
+
+/* Profile Picture Styling */
+.profile-pic-lg {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    /* Primary border */
+}
+
+/* Form control styling */
+.form-control,
+.form-select {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.form-text {
+    font-size: 0.875em;
+    color: #6c757d;
+}
+
+/* Buttons */
+.btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Switch & Radio buttons */
+.form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Help & Support List items */
+.list-group-item a {
+    color: #495057;
+    font-weight: 500;
+}
+
+.list-group-item a:hover {
+    color: #007bff;
+}
+
+.list-group-item a i {
+    color: #007bff;
+    /* Primary color for icons */
+}
+
+.list-group-item a .bi-chevron-right {
+    color: #6c757d;
+    /* Muted color for arrow */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .settings-nav {
+        margin-bottom: 1.5rem;
+    }
+
+    .scrollspy-example {
+        height: auto;
+        /* Auto height on small screens */
+        overflow-y: visible;
+        /* Disable scroll on small screens if content fits */
+        padding: 1.5rem !important;
+    }
+
+    h3 {
+        margin-top: 1.5rem;
+        font-size: 1.5rem;
+    }
+
+    .profile-pic-lg {
+        width: 80px;
+        height: 80px;
+    }
+
+    .d-flex.align-items-center.mb-4 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .d-flex.align-items-center.mb-4 img {
+        margin-right: 0 !important;
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Settings - LearnSphere{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/settings.css' %}">
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
+    <h1 class="h2 fw-bold text-primary">Settings</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <button type="button" class="btn btn-primary rounded-pill">Save Changes</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-md-3 mb-4">
+        <div class="list-group list-group-flush shadow-sm rounded-3">
+            <a href="#profile-settings" class="list-group-item list-group-item-action active" aria-current="true">
+                <i class="bi bi-person-fill me-2"></i> Profile Settings
+            </a>
+            <a href="#account-settings" class="list-group-item list-group-item-action">
+                <i class="bi bi-gear-fill me-2"></i> Account Settings
+            </a>
+            <a href="#notification-settings" class="list-group-item list-group-item-action">
+                <i class="bi bi-bell-fill me-2"></i> Notification Settings
+            </a>
+            <a href="#theme-language" class="list-group-item list-group-item-action">
+                <i class="bi bi-palette-fill me-2"></i> Language & Theme
+            </a>
+            <a href="#help-support" class="list-group-item list-group-item-action">
+                <i class="bi bi-question-circle-fill me-2"></i> Help & Support
+            </a>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-9">
+        <div data-bs-spy="scroll" data-bs-target="#settings-nav" data-bs-smooth-scroll="true"
+            class="scrollspy-example p-3 rounded-3 shadow-sm" tabindex="0">
+
+            <section id="profile-settings" class="mb-5">
+                <h3 class="mb-4 text-secondary">Profile Settings</h3>
+                <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://via.placeholder.com/100"
+                                class="rounded-circle me-4 profile-pic-lg border border-primary" alt="Profile Picture">
+                            <div>
+                                <h5 class="mb-1">Change Profile Picture</h5>
+                                <p class="text-muted small">Upload a new image (max 2MB, JPG/PNG).</p>
+                                <input type="file" class="form-control" id="profilePictureInput">
+                            </div>
+                        </div>
+                        <form>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" value="John">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" value="Doe">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" value="john.doe@example.com"
+                                    readonly>
+                                <div class="form-text">Your email is read-only for security reasons. Contact support to
+                                    change.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" value="+1 (555) 123-4567">
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="department" class="form-label">Department / Major</label>
+                                    <input type="text" class="form-control" id="department" value="Computer Science">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="enrollmentYear" class="form-label">Enrollment Year / Level</label>
+                                    <input type="text" class="form-control" id="enrollmentYear" value="2023 / Freshman">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="academicID" class="form-label">Academic ID / Matric Number</label>
+                                <input type="text" class="form-control" id="academicID" value="LS-2023-001" readonly>
+                                <div class="form-text">This is a read-only identifier.</div>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="submit" class="btn btn-outline-primary mt-3">Update Profile</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="account-settings" class="mb-5">
+                <h3 class="mb-4 text-secondary">Account Settings</h3>
+                <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="mb-3">Change Password</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="currentPassword" class="form-label">Current Password</label>
+                                <input type="password" class="form-control" id="currentPassword">
+                            </div>
+                            <div class="mb-3">
+                                <label for="newPassword" class="form-label">New Password</label>
+                                <input type="password" class="form-control" id="newPassword">
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                                <input type="password" class="form-control" id="confirmNewPassword">
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="submit" class="btn btn-outline-primary mt-3">Change Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="notification-settings" class="mb-5">
+                <h3 class="mb-4 text-secondary">Notification Settings</h3>
+                <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="mb-3">Email Notifications</h5>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="emailGrades" checked>
+                            <label class="form-check-label" for="emailGrades">New Grade Alerts</label>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="emailAnnouncements" checked>
+                            <label class="form-check-label" for="emailAnnouncements">Course Announcements</label>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="emailDeadlines">
+                            <label class="form-check-label" for="emailDeadlines">Assignment Deadlines Reminders</label>
+                        </div>
+                        <div class="form-check form-switch mb-4">
+                            <input class="form-check-input" type="checkbox" id="emailPromotions">
+                            <label class="form-check-label" for="emailPromotions">Promotional & Marketing Emails</label>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-outline-primary mt-3">Save Notification
+                                Settings</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="theme-language" class="mb-5">
+                <h3 class="mb-4 text-secondary">Language & Theme</h3>
+                <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h5 class="mb-3">Preferred Language</h5>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>English</option>
+                                <option value="1">Türkçe</option>
+                                <option value="2">Español</option>
+                                <option value="3">Français</option>
+                            </select>
+                        </div>
+                        <div>
+                            <h5 class="mb-3">Theme</h5>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="themeRadio" id="lightTheme"
+                                    value="light" checked>
+                                <label class="form-check-label" for="lightTheme"><i class="bi bi-sun-fill me-1"></i>
+                                    Light</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="themeRadio" id="darkTheme"
+                                    value="dark">
+                                <label class="form-check-label" for="darkTheme"><i class="bi bi-moon-fill me-1"></i>
+                                    Dark</label>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-outline-primary mt-3">Save Display Settings</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="help-support" class="mb-5">
+                <h3 class="mb-4 text-secondary">Help & Support</h3>
+                <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="mb-3">Need Assistance?</h5>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item border-0 px-0">
+                                <a href="#" class="text-decoration-none d-flex align-items-center">
+                                    <i class="bi bi-question-circle me-2 text-primary"></i> FAQs - Frequently Asked
+                                    Questions
+                                    <i class="bi bi-chevron-right ms-auto"></i>
+                                </a>
+                            </li>
+                            <li class="list-group-item border-0 px-0">
+                                <a href="#" class="text-decoration-none d-flex align-items-center">
+                                    <i class="bi bi-envelope-fill me-2 text-primary"></i> Contact Support
+                                    <i class="bi bi-chevron-right ms-auto"></i>
+                                </a>
+                            </li>
+                            <li class="list-group-item border-0 px-0">
+                                <a href="#" class="text-decoration-none d-flex align-items-center">
+                                    <i class="bi bi-book-fill me-2 text-primary"></i> User Guide / Tutorials
+                                    <i class="bi bi-chevron-right ms-auto"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '#settings-nav', // ID of your settings navigation
+            offset: 80 // Adjust this offset if your fixed header or other elements cover content
+        });
+
+        // Optional: Smooth scroll when clicking nav items
+        document.querySelectorAll('#settings-nav .list-group-item').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+
+{% endblock content %}
