@@ -3,5 +3,5 @@ from .views import HomeView, SettingsView
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('settings/', HomeView.as_view(), name='settings'),
+    path('settings/', SettingsView.as_view(), name='settings'),
 ]
