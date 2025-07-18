@@ -13,28 +13,7 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12 col-md-3 mb-4">
-        <div class="list-group list-group-flush shadow-sm rounded-3">
-            <a href="#profile-settings" class="list-group-item list-group-item-action active" aria-current="true">
-                <i class="bi bi-person-fill me-2"></i> Profile Settings
-            </a>
-            <a href="#account-settings" class="list-group-item list-group-item-action">
-                <i class="bi bi-gear-fill me-2"></i> Account Settings
-            </a>
-            <a href="#notification-settings" class="list-group-item list-group-item-action">
-                <i class="bi bi-bell-fill me-2"></i> Notification Settings
-            </a>
-            <a href="#theme-language" class="list-group-item list-group-item-action">
-                <i class="bi bi-palette-fill me-2"></i> Language & Theme
-            </a>
-            <a href="#help-support" class="list-group-item list-group-item-action">
-                <i class="bi bi-question-circle-fill me-2"></i> Help & Support
-            </a>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-9">
+    <div class="col-12 col-md-12">
         <div data-bs-spy="scroll" data-bs-target="#settings-nav" data-bs-smooth-scroll="true"
             class="scrollspy-example p-3 rounded-3 shadow-sm" tabindex="0">
 
@@ -218,25 +197,7 @@
 
         </div>
     </div>
-</div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const scrollSpy = new bootstrap.ScrollSpy(document.body, {
-            target: '#settings-nav', // ID of your settings navigation
-            offset: 80 // Adjust this offset if your fixed header or other elements cover content
-        });
 
-        // Optional: Smooth scroll when clicking nav items
-        document.querySelectorAll('#settings-nav .list-group-item').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    });
-</script>
 
 {% endblock content %}
