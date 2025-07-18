@@ -1,69 +1,28 @@
-/* Custom CSS for Settings Page */
+/* Custom CSS for Settings Page - Single Column Layout */
 
-/* Base overrides for main content area to ensure scrollability */
-main {
-    background-color: #f8f9fa;
-    /* Light grey background for main content */
-    border-radius: 8px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding-bottom: 2rem !important;
-    /* Ensure enough padding at bottom for scrollspy */
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-}
+/*
+   Removed sidebar specific styles that were previously here:
+   .list-group-flush, .list-group-item, .list-group-item.active,
+   .list-group-item:hover, .list-group-item i.
+   These styles are now expected to be handled by dashboard.css for the main application sidebar,
+   or are no longer needed for the settings page's layout.
+*/
 
-/* Settings Navigation (Left List Group) */
-.list-group-flush {
-    border-radius: .75rem;
-    /* Slightly more rounded corners for the list group */
-}
-
-.list-group-item {
-    font-weight: 500;
-    color: #495057;
-    padding: 1rem 1.25rem;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.list-group-item.active {
-    background-color: #007bff;
-    /* Bootstrap primary blue */
-    color: #fff;
-    border-color: #007bff;
-}
-
-.list-group-item.active i {
-    color: #fff;
-    /* Ensure icon is white in active state */
-}
-
-.list-group-item:hover:not(.active) {
-    background-color: #e9ecef;
-    /* Light grey on hover */
-    color: #007bff;
-    /* Primary color text on hover */
-}
-
-.list-group-item i {
-    font-size: 1.1em;
-    color: #6c757d;
-    /* Muted icon color */
-    transition: color 0.2s ease;
-}
-
-/* Settings Content Panel (Right Side) */
-.scrollspy-example {
-    position: relative;
-    height: calc(100vh - 180px);
-    /* Adjust height to fill viewport, considering header/footer */
-    overflow-y: auto;
-    /* Enable scrolling for content */
-    border-radius: .75rem;
-    /* Rounded corners for the scrollable content area */
+/* Settings Content Panel (Single Column Layout) */
+/* This styles the white container holding all settings sections */
+.settings-content-panel {
     background-color: #ffffff;
     /* White background */
+    border-radius: .75rem;
+    /* Rounded corners for the main content area */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    /* Slight shadow */
     padding: 2rem !important;
     /* Ensure content has internal padding */
+    /* If you want this main panel to scroll if content overflows, you can add: */
+    /* height: calc(100vh - 180px); */
+    /* Adjust as needed */
+    /* overflow-y: auto; */
 }
 
 /* Section Headings */
@@ -75,6 +34,10 @@ h3 {
 }
 
 /* Card Styling for Sub-sections */
+/* These styles should be consistent with dashboard.css's .card styles if possible.
+   dashboard.css has a more pronounced hover effect; settings.css can use the same or simpler.
+   I've kept the settings-specific subtle shadow for inner cards here.
+*/
 .card {
     border: none;
     border-radius: .75rem;
@@ -114,19 +77,13 @@ h3 {
 }
 
 /* Buttons */
-.btn-outline-primary {
-    border-color: #007bff;
-    color: #007bff;
-}
-
-.btn-outline-primary:hover {
-    background-color: #007bff;
-    color: #fff;
-}
-
+/* These should now align with dashboard.css's button styles */
 .btn-primary {
     background-color: #007bff;
+    /* Bootstrap primary blue */
     border-color: #007bff;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
 }
 
 .btn-primary:hover {
@@ -141,6 +98,7 @@ h3 {
 }
 
 /* Help & Support List items */
+/* These are specific to the Help & Support section, not a general sidebar */
 .list-group-item a {
     color: #495057;
     font-weight: 500;
@@ -163,15 +121,10 @@ h3 {
 
 /* Responsive adjustments */
 @media (max-width: 767.98px) {
-    .settings-nav {
-        margin-bottom: 1.5rem;
-    }
+    /* Removed .settings-nav as it's no longer used */
+    /* Removed .scrollspy-example, using .settings-content-panel instead */
 
-    .scrollspy-example {
-        height: auto;
-        /* Auto height on small screens */
-        overflow-y: visible;
-        /* Disable scroll on small screens if content fits */
+    .settings-content-panel {
         padding: 1.5rem !important;
     }
 
