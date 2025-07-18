@@ -24,3 +24,8 @@ class HomeView(View):
         }
 
         return render(request, 'home/index.html', context=context)
+    
+
+class SettingsView(View):
+    def get(self, request):
+        return render(request, 'home/settings.html')
